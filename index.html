@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Frazzl test</title>
+    </head>
+    <body>
+        <p id="paragraph"></p>
+        <p>it does not do to dwell on dreams and forget to live</p>
+        <input type="text" id="text-field">
+        <script>
+            var timeLeft = 10;
+            var elem = document.getElementById('paragraph');
+            var text = document.getElementById('text-field')
+
+            function countdown() { 
+                if (text.value.length != 0){
+                if (timeLeft == -1) {
+                    clearTimeout();
+                    elem.innerHTML = "Time's up!"
+                    text.disabled = true;
+                    var input = text.value;
+                    alert(input);
+                    
+                } else {
+                    elem.innerHTML = timeLeft + ' seconds remaining';
+                    timeLeft--;
+                }
+                
+            }}
+
+            text.addEventListener("click", setInterval(countdown,1000))
+            
+        </script>
+    </body>
+</html>
